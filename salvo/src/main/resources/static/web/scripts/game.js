@@ -154,10 +154,14 @@ var app = new Vue({
             let playerSalvoes = app.gameView.salvoes.filter(salvo => salvo.player.id == app.player.id).sort((a, b) => a.turn - b.turn);
 
             if (opponentSalvoes[opponentSalvoes.length - 1]) {
-                if (playerSalvoes[playerSalvoes.length - 1].turn == opponentSalvoes[opponentSalvoes.length - 1].turn) {
-                    app.sunkedShipsPlayer = opponentSalvoes[opponentSalvoes.length - 1].sunkedShips;
+                if (playerSalvoes[playerSalvoes.length - 1]) {
+                    if (playerSalvoes[playerSalvoes.length - 1].turn == opponentSalvoes[opponentSalvoes.length - 1].turn) {
+                        app.sunkedShipsPlayer = opponentSalvoes[opponentSalvoes.length - 1].sunkedShips;
+                    } else {
+                        app.sunkedShipsPlayer = opponentSalvoes[opponentSalvoes.length - 2].sunkedShips;
+                    }
                 } else {
-                    app.sunkedShipsPlayer = opponentSalvoes[opponentSalvoes.length - 2].sunkedShips;
+                    app.sunkedShipsPlayer = [];
                 }
             }
 
