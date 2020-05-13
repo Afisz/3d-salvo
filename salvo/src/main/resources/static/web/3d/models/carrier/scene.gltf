@@ -1,0 +1,137 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.0.5",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "carrier"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Mat_Ark_Royal_Hull",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 1,
+                    "texCoord" : 0
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "carrier",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        },
+        {
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Mat_Ark_Royal_Hull_baseColor",
+            "uri" : "Mat_Ark_Royal_Hull_baseColor.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Mat_Ark_Royal_Hull_metallicRoughness",
+            "uri" : "Mat_Ark_Royal_Hull_metallicRoughness.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 18192,
+            "max" : [
+                119.92835998535156,
+                45.17063903808594,
+                19.820329666137695
+            ],
+            "min" : [
+                -121.240966796875,
+                -8.449999809265137,
+                -19.820329666137695
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 18192,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 18192,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 31506,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 218304,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 218304,
+            "byteOffset" : 218304
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 145536,
+            "byteOffset" : 436608
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 63012,
+            "byteOffset" : 582144
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 645156,
+            "uri" : "scene.bin"
+        }
+    ]
+}

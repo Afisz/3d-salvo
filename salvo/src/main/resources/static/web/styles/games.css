@@ -1,0 +1,78 @@
+#app {
+    background-image: url("img/font_image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: auto;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h6 {
+    padding-top: 11px;
+}
+
+header {
+    height: 150px !important;
+    width: 90vw !important;
+    border-radius: 25px;
+    border: 2px solid #4d4d4d;
+    background-color: rgba(200, 200, 200, 0.4);
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.3);
+    margin-left: 5vw !important;
+    margin-right: 5vw !important;
+    margin-top: 2vh !important;
+    margin-bottom: 5vh !important;
+}
+
+.games-table {
+    width: 60vw !important;
+    opacity: 87%;
+}
+
+.score-table {
+    width: 50vw !important;
+    opacity: 87%;
+}
+
+.table-heading {
+    font-weight: bold;
+}
+
+.centered-td {
+    text-align: center;
+}
+
+.join-enter-buttons {
+    width: 10vw;
+}
+
+#content {
+    width: 70vw !important;
+    border-radius: 25px;
+    border: 2px solid #4d4d4d;
+    background-color: rgba(200, 200, 200, 0.4);
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.3);
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-bottom: 15vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+#logo-salvo-1 {
+    height: 135px;
+    width: 485px;
+    padding-top: 20px;
+}
+
+#login-buttons {
+    z-index: 1;
+    position: absolute;
+    width:300px;
+    right: 2vw !important;
+    margin-top: 20px;
+}

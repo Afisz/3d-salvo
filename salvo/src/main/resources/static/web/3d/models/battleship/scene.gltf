@@ -1,0 +1,283 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.0.5",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2,
+                3,
+                10
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Light",
+            "rotation" : [
+                0.16907575726509094,
+                0.7558803558349609,
+                -0.27217137813568115,
+                0.570947527885437
+            ],
+            "translation" : [
+                4.076245307922363,
+                5.903861999511719,
+                -1.0054539442062378
+            ]
+        },
+        {
+            "name" : "Camera",
+            "rotation" : [
+                0.483536034822464,
+                0.33687159419059753,
+                -0.20870360732078552,
+                0.7804827094078064
+            ],
+            "translation" : [
+                7.358891487121582,
+                4.958309173583984,
+                6.925790786743164
+            ]
+        },
+        {
+            "name" : "Light.001",
+            "rotation" : [
+                0.5232754945755005,
+                0.34203392267227173,
+                -0.7269423604011536,
+                0.284166157245636
+            ],
+            "translation" : [
+                4.076245307922363,
+                5.903862476348877,
+                -1.0054532289505005
+            ]
+        },
+        {
+            "name" : "Camera.001",
+            "rotation" : [
+                0.8937963247299194,
+                0.09062855690717697,
+                -0.3857799172401428,
+                0.20997287333011627
+            ],
+            "translation" : [
+                7.358891487121582,
+                4.958308696746826,
+                6.925792217254639
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "battleship"
+        },
+        {
+            "children" : [
+                4
+            ],
+            "name" : "battleship.001"
+        },
+        {
+            "name" : "Lamp.001"
+        },
+        {
+            "children" : [
+                6
+            ],
+            "name" : "Lamp",
+            "rotation" : [
+                0.16907446086406708,
+                -0.2721705734729767,
+                -0.7558797597885132,
+                0.5709490776062012
+            ],
+            "scale" : [
+                0.9999974370002747,
+                0.999995768070221,
+                0.9999960660934448
+            ],
+            "translation" : [
+                4.076250076293945,
+                -1.0054500102996826,
+                -5.903860092163086
+            ]
+        },
+        {
+            "children" : [
+                5,
+                7
+            ],
+            "name" : "Root"
+        },
+        {
+            "children" : [
+                8
+            ],
+            "name" : "RootNode (model correction matrix)"
+        },
+        {
+            "children" : [
+                9
+            ],
+            "name" : "RootNode (gltf orientation matrix)",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                1,
+                1
+            ],
+            "emissiveTexture" : {
+                "index" : 0,
+                "texCoord" : 0
+            },
+            "name" : "Material.001",
+            "normalTexture" : {
+                "index" : 1,
+                "scale" : 0.5175052881240845,
+                "texCoord" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 2,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 3,
+                    "texCoord" : 0
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "battleship",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        },
+        {
+            "source" : 1
+        },
+        {
+            "source" : 2
+        },
+        {
+            "source" : 3
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Material_emissive",
+            "uri" : "Material_emissive.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Material_normal",
+            "uri" : "Material_normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Material_baseColor",
+            "uri" : "Material_baseColor.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Material_metallicRoughness",
+            "uri" : "Material_metallicRoughness.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1774,
+            "max" : [
+                1.7597899436950684,
+                13.348779678344727,
+                1.5330599546432495
+            ],
+            "min" : [
+                -1.7597899436950684,
+                -13.128379821777344,
+                -4.303030014038086
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1774,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1774,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 4044,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 21288,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 21288,
+            "byteOffset" : 21288
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 14192,
+            "byteOffset" : 42576
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8088,
+            "byteOffset" : 56768
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 64856,
+            "uri" : "scene.bin"
+        }
+    ]
+}

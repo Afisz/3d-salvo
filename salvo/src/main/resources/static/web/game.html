@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/game.css">
+</head>
+
+<body class="p-0">
+<div id="app" class="container-fluid p-0">
+<!--    Modal error-->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{errorMessage}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Header-->
+    <header class="align-items-end">
+        <div class="row">
+            <div class="col d-flex justify-content-center p-0">
+                <img id="logo-salvo-2" src="styles/img/logosalvo.png">
+                <div id="login-buttons">
+                    <div class="row p-0">
+                        <div class="col d-flex justify-content-end p-0">
+                            <a href="games.html">
+                                <button id="home-button" type="button" class="btn btn-primary mr-2">Home</button>
+                            </a>
+                            <button id="sign-out-button" type="button" class="btn btn-primary mr-3" v-on:click="signOut">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col d-flex justify-content-center">
+                <h2>{{'PLAYER: ' + player.name}}</h2>
+            </div>
+            <div class="col d-flex justify-content-center">
+                <h2>{{'OPPONENT: ' + (opponent != null ? opponent.name : '(WAITING OPPONENT)') }}</h2>
+            </div>
+        </div>
+    </header>
+
+<!--Instructions    -->
+    <template v-if="instructions == 'on' && gameView.ships.length == 0">
+        <div class="instructions">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h3>PLACING SHIPS</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <H6 class="mb-0">MOVE SHIPS:</H6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <p>Click on the ship and hold to drag it.
+                                    You'll be able to drop it only on free spaces.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <H6 class="mb-0">ROTATE SHIPS:</H6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <p>Click on the ship to rotate it 90°.
+                                    Click again to rotate it backwards.
+                                    You'll be able to rotate the ship only to free spaces and inside the grid.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <H6 class="mb-0">CAMERA:</H6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <p class="mb-0">Click anywhere in the screen (except ships, buttons and the upper board) and hold to be able to change the camera angle.
+                        You can zoom in and out using the wheel of the mouse or using two fingers up and down on the touchpad.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button id="close-instructions-1" type="button" class="btn btn-primary" v-on:click="closeInstructions">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template v-if="instructions == 'on' && gameView.ships.length != 0 && gameView.salvoes.length == 0">
+        <div class="instructions">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h3>PLACING & SHOOTING SALVOES</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <p class="mb-0">On the right (Opponent's) grid you'll be able to select as much salvoes as ships you still have unsinked.
+                        For doing this just click con the grid, the squares will become green. When you've selected them all, click on the "SALVOES SHOOT!" button.
+                        Squares will change their colors to yellow for missing shots, orange for hits and red for sinked ships.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button id="close-instructions-2" type="button" class="btn btn-primary" v-on:click="closeInstructions">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+<!--Action Buttons    -->
+    <button v-show="gameView.ships.length == 0" id="place-ships-button" type="button" class="btn btn-primary" v-on:click="placeShips">PLACE SHIPS!</button>
+    <button v-show="gameView.ships.length > 0 && gameView.state != 'GAME_OVER_WIN' &&
+            gameView.state != 'GAME_OVER_LOST' && gameView.state != 'GAME_OVER_TIE'" id="action-button" type="button" class="btn btn-primary" v-on:click="salvoesShoot">{{salvoesButtonMessage}}</button>
+
+<!--Game end logos    -->
+    <template v-if="gameView.state == 'GAME_OVER_LOST'">
+        <img class="final-logos" src="styles/img/lost.png">
+    </template>
+    <template v-if="gameView.state == 'GAME_OVER_TIE'">
+        <img class="final-logos" src="styles/img/tie.png">
+    </template>
+    <template v-if="gameView.state == 'GAME_OVER_WIN'">
+        <img class="final-logos" src="styles/img/win.png">
+    </template>
+</div>
+
+<!--3D Grids-->
+<div class="row">
+    <div id="my-ships" class="col p-0">
+        <div id="my-ships-grid"></div>
+    </div>
+    <div id="opponent-ships" class="col p-0">
+        <div id="opponent-ships-grid"></div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="scripts/three.js"></script>
+<script src="scripts/OrbitControls.js"></script>
+<script src="scripts/DragControls.js"></script>
+<script src="scripts/Reflector.js"></script>
+<script src="scripts/Refractor.js"></script>
+<script src="scripts/Water2.js"></script>
+<script src="scripts/GLTFLoader.js"></script>
+<script src="scripts/game.js"></script>
+<script src="scripts/myShips.js"></script>
+<script src="scripts/opponentShips.js"></script>
+</body>
+
+</html>
