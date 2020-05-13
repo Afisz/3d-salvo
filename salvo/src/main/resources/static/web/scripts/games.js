@@ -127,7 +127,7 @@ var app = new Vue({
 
 
 //On load
-$.get('http://localhost:8080/api/games').done(function (games) {
+$.get('/api/games').done(function (games) {
     app.games = games.games;
     if(games.player) {
         app.player = games.player
