@@ -110,7 +110,7 @@
             </div>
         </div>
     </template>
-    <template v-if="instructions == 'on' && gameView.ships.length != 0 && gameView.salvoes.length > 1">
+    <template v-if="instructions == 'on' && gameView.ships.length != 0 && gameView.salvoes.length < 2">
         <div class="instructions">
             <div class="row">
                 <div class="col d-flex justify-content-center">
