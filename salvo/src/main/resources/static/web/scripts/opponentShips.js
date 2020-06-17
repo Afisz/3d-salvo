@@ -301,9 +301,9 @@ function onResize3() {
 function onMouseMove3(event) {
     event.preventDefault();
 
-    mouse3.x = (event.offsetX / (renderer2.domElement.width * 0.5)) * 2 - 1;
+    mouse3.x = (event.layerX / (renderer2.domElement.width * 0.5)) * 2 - 1;
 
-    mouse3.y = -(event.offsetY  / (renderer2.domElement.height * 0.5)) * 2 + 1;
+    mouse3.y = -(event.layerY  / (renderer2.domElement.height * 0.5)) * 2 + 1;
 }
 
 
