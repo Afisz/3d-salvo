@@ -302,7 +302,7 @@ function onMouseMove3(event) {
     event.preventDefault();
 
     if (navigator.appVersion.indexOf('Mac') != -1) {
-        mouse3.x = (event.offsetX / (renderer3.domElement.width * 0.5)) * 2 - 1;
+        mouse3.x = (event.offsetX / (renderer3.domElement.width * 0.5)) * 3 - 1;
 
         mouse3.y = -(event.offsetY / (renderer3.domElement.height * 0.5)) * 2 + 1;
 
@@ -313,7 +313,7 @@ function onMouseMove3(event) {
         console.log('event.offsetY: ' + event.offsetY);
         console.log('renderer3.domElement.height: ' + renderer3.domElement.height);
     } else {
-        mouse3.x = (event.offsetX / (renderer3.domElement.width)) * 2 - 1;
+        mouse3.x = (event.offsetX / renderer3.domElement.width) * 0.005 - 1;
 
         mouse3.y = -(event.offsetY / (renderer3.domElement.height * 0.8)) * 2 + 1;
 
