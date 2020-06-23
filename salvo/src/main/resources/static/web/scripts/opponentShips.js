@@ -302,27 +302,27 @@ function onMouseMove3(event) {
     event.preventDefault();
 
     if (navigator.appVersion.indexOf('Mac') != -1) {
-        mouse3.x = (event.offsetX / (renderer2.domElement.width * 0.5)) * 2 - 1;
+        mouse3.x = (event.offsetX / (renderer3.domElement.width * 0.5)) * 2 - 1;
 
-        mouse3.y = -(event.offsetY / (renderer2.domElement.height * 0.5)) * 2 + 1;
+        mouse3.y = -(event.offsetY / (renderer3.domElement.height * 0.5)) * 2 + 1;
 
         console.log('mouse3.x: ' + mouse3.x);
         console.log('event.offsetX: ' + event.offsetX);
-        console.log('renderer2.domElement.width: ' + renderer2.domElement.width);
+        console.log('renderer3.domElement.width: ' + renderer3.domElement.width);
         console.log('mouse3.y: ' + mouse3.y);
         console.log('event.offsetY: ' + event.offsetY);
-        console.log('renderer2.domElement.height: ' + renderer2.domElement.height);
+        console.log('renderer3.domElement.height: ' + renderer3.domElement.height);
     } else {
-        mouse3.x = (event.offsetX / (renderer2.domElement.width)) * 2 - 1;
+        mouse3.x = (event.offsetX / (renderer3.domElement.width)) * 2 - 1;
 
-        mouse3.y = -(event.offsetY / (renderer2.domElement.height)) * 2 + 1;
+        mouse3.y = -(event.offsetY / (renderer3.domElement.height)) * 2 + 1;
 
         console.log('mouse3.x: ' + mouse3.x);
         console.log('event.offsetX: ' + event.offsetX);
-        console.log('renderer2.domElement.width: ' + renderer2.domElement.width);
+        console.log('renderer3.domElement.width: ' + renderer3.domElement.width);
         console.log('mouse3.y: ' + mouse3.y);
         console.log('event.offsetY: ' + event.offsetY);
-        console.log('renderer2.domElement.height: ' + renderer2.domElement.height);
+        console.log('renderer3.domElement.height: ' + renderer3.domElement.height);
     }
 }
 
