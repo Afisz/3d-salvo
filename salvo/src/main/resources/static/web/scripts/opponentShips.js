@@ -315,7 +315,7 @@ function onMouseMove3(event) {
     } else {
         mouse3.x = (event.offsetX / (renderer3.domElement.width)) * 2 - 1;
 
-        mouse3.y = -(event.offsetY / (renderer3.domElement.height)) * 2 + 1;
+        mouse3.y = -(event.offsetY / (renderer3.domElement.height * 0.8)) * 2 + 1;
 
         console.log('mouse3.x: ' + mouse3.x);
         console.log('event.offsetX: ' + event.offsetX);
